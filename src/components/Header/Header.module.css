@@ -1,0 +1,22 @@
+.header {
+  height: 10.25rem;
+  background: var(--gray-700);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  height: 1.8rem;
+  margin-right: 6px;
+}
+
+.header strong {
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--blue);
+}
+
+.header strong:nth-child(3) {
+  color: var(--purple-dark);
+}
