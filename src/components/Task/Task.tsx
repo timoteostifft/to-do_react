@@ -4,12 +4,16 @@ import styles from './Task.module.css'
 
 import trash from '../../assets/trash.svg'
 
-const Task: React.FC = () => {
+interface TaskProps {
+  content: string
+}
+
+const Task: React.FC<TaskProps> = ({ content }) => {
   return (
     <div className={styles.container}>
       <input type="checkbox" name="" id="" />
 
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora soluta sunt, repellendus molestias amet consequuntur dicta alias.</p>
+      <p>{content}</p>
       <button>
         <img src={trash} alt="" />
       </button>
