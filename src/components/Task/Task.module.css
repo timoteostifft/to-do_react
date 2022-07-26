@@ -1,7 +1,8 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
 
   gap: 14px;
   padding: 12px 14px;
@@ -20,10 +21,15 @@
   user-select: none;
 }
 
+.container+.container {
+  margin-top: 1rem;
+}
+
 .container input {
   min-width: 1.4rem;
   min-height: 1.4rem;
   border-radius: 50%;
+
 
   appearance: none;
   -webkit-appearance: none;
@@ -39,6 +45,10 @@
   background-repeat: no-repeat;
   background-color: var(--purple-dark);
   border: 0;
+}
+
+.container p {
+  width: 100%;
 }
 
 .container button {
