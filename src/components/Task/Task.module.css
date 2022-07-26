@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  gap: 14px;
+  padding: 12px 14px;
+
+  color: var(--gray-200);
+  background: var(--gray-400);
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4rem;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  min-width: 1.4rem;
+  min-height: 1.4rem;
+  border-radius: 50%;
+
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+
+  border: 2.4px solid var(--blue);
+}
+
+.container input:checked {
+  background: url("../../assets/marked.svg");
+  background-position: center;
+  background-size: 0.8rem;
+  background-repeat: no-repeat;
+  background-color: var(--purple-dark);
+  border: 0;
+}
+
+.container button {
+  background: 0;
+  border: 0;
+}
+
+.container button img {
+  width: 1.8rem;
+}
