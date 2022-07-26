@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  width: 100%;
+
+  justify-content: space-between;
+
+  margin: 3rem 0 2rem 0;
+}
+
+.header div {
+  display: flex;
+}
+
+.header div strong {
+  font-weight: 900;
+  font-size: 1rem;
+  color: var(--blue);
+  margin-right: 10px;
+}
+
+.header div:nth-child(2) strong {
+  color: var(--purple-dark);
+}
+
+.header div section {
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 12px;
+  background: var(--gray-400);
+  color: var(--gray-200);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
