@@ -3,16 +3,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 0 20px;
 }
 
 .wrapper header {
   display: flex;
   width: 100%;
-  max-width: 900px;
+
   justify-content: space-between;
 
-  margin-top: 3rem;
-  padding: 0 14px;
+  margin: 3rem 0 2rem 0;
 }
 
 .wrapper header div {
@@ -40,4 +45,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  margin-top: 3rem;
+
+  color: var(--gray-300);
+}
+
+.empty img {
+  width: 4rem;
+  margin-bottom: 12px;
+}
+
+.empty strong {
+  font-size: 16.5px;
+}
+
+.empty p {
+  font-size: 14.5px;
 }
