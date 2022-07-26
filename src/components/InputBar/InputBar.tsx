@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './SearchBar.module.css'
+import styles from './InputBar.module.css'
 
 import add from '../../assets/add.svg'
 
