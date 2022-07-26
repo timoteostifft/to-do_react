@@ -1,0 +1,38 @@
+.container {
+  height: 3rem;
+  width: 100%;
+  max-width: 900px;
+  margin-top: calc(-3rem/2);
+  padding: 0 14px;
+
+  display: flex;
+}
+
+.container input {
+  height: 100%;
+  width: 100%;
+
+  border: 0;
+  border-radius: 8px;
+  margin-right: 1rem;
+  padding: 1rem;
+
+  color: var(--gray-300);
+  background: var(--gray-400);
+}
+
+.container button {
+  width: 90px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--blue-dark);
+  color: #FFF;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container button img {
+  margin-left: 6px;
+}
