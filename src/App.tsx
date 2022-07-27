@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react"
+import { useState } from "react"
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -18,20 +18,10 @@ export function App() {
 
   const [tasks, setTasks] = useState<TTask[]>([])
 
-  const [newTaskText, setNewTaskText] = useState<string>('')
-
-  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
-    event.target.setCustomValidity("")
-    setNewTaskText(event.target.value)
-  }
-
-  function handleCreateNewTask(event: FormEvent) {
-    event.preventDefault()
-
+  function handleCreateNewTask(newTaskText: string) {
     const newTask: TTask = { content: newTaskText, uuid: uuidv4(), isFinish: false }
 
-    setTasks([...tasks, newTask])
-    setNewTaskText('')
+    setTasks([newTask, ...tasks])
   }
 
   function handleDeleteTask(taskToDeleteUuid: string) {
@@ -54,7 +44,6 @@ export function App() {
         isFinish: !tasks[index].isFinish
       }
       setTasks([...tasks.slice(0, index), newTask, ...tasks.slice(index + 1)])
-      console.log(newTask.isFinish)
     }
   }
 
@@ -62,7 +51,7 @@ export function App() {
     <div>
       <Header />
       <div className={styles.wrapper}>
-        <InputBar handleNewTaskChange={handleNewTaskChange} handleCreateNewTask={handleCreateNewTask} content={newTaskText} />
+        <InputBar handleCreateNewTask={handleCreateNewTask} />
 
         <TasksHeader tasks={tasks} />
 
