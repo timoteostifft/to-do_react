@@ -21,8 +21,6 @@ const Task: React.FC<TaskProps> = ({ task, onDeleteTask, onFinishTask }) => {
     onFinishTask(task.uuid)
   }
 
-  useEffect(() => console.log(task))
-
   return (
     <div className={styles.container}>
       <input type="checkbox" name="" id="" onChange={handleFinishTask} />
