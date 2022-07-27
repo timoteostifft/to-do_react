@@ -10,7 +10,7 @@ interface InputBarProps {
   content: string;
 }
 
-const SearchBar: React.FC<InputBarProps> = ({ handleNewTaskChange, handleCreateNewTask, content }) => {
+const InputBar: React.FC<InputBarProps> = ({ handleNewTaskChange, handleCreateNewTask, content }) => {
 
   return (
     <div className={styles.container}>
@@ -23,4 +23,4 @@ const SearchBar: React.FC<InputBarProps> = ({ handleNewTaskChange, handleCreateN
   )
 }
 
-export default SearchBar;
+export default InputBar;
