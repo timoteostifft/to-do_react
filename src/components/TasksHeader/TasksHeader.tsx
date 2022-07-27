@@ -1,8 +1,18 @@
 import React from 'react';
+import TTask from '../../types/TTask';
 
 import styles from './TasksHeader.module.css'
 
-const TasksHeader: React.FC = () => {
+interface TasksheaderProps {
+  tasks: TTask[]
+}
+
+const TasksHeader: React.FC<TasksheaderProps> = ({ tasks }) => {
+
+  const finishedTasks = tasks.filter(task => {
+    return task.isFinish === true
+  })
+
   return (
     <header className={styles.header}>
       <div>
@@ -10,15 +20,15 @@ const TasksHeader: React.FC = () => {
           Tarefas Criadas
         </strong>
         <section>
-          1
+          {tasks.length}
         </section>
       </div>
       <div>
         <strong>
-          Conclúidas
+          Concluídas
         </strong>
         <section>
-          0
+          {tasks.length === 0 ? '0' : `${finishedTasks.length} de ${tasks.length}`}
         </section>
       </div>
     </header>
