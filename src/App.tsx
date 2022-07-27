@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -28,7 +28,7 @@ export function App() {
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault()
 
-    const newTask: TTask = { content: newTaskText, uuid: uuidv4() }
+    const newTask: TTask = { content: newTaskText, uuid: uuidv4(), isFinish: false }
 
     setTasks([...tasks, newTask])
     setNewTaskText('')
@@ -40,6 +40,22 @@ export function App() {
     })
 
     setTasks(tasksWithoutDeletedOne)
+  }
+
+  function handleChangeTaskIsFinish(taskToFinishUuid: string) {
+    const index = tasks.findIndex(task => {
+      return task.uuid === taskToFinishUuid
+    })
+
+    if (index || index === 0) {
+      const newTask: TTask = {
+        content: tasks[index].content,
+        uuid: taskToFinishUuid,
+        isFinish: !tasks[index].isFinish
+      }
+      setTasks([...tasks.slice(0, index), newTask, ...tasks.slice(index + 1)])
+      console.log(newTask.isFinish)
+    }
   }
 
   return (
@@ -58,7 +74,12 @@ export function App() {
           </div>
           : (tasks.map(
             task =>
-              <Task key={task.uuid} uuid={task.uuid} content={task.content} onDeleteTask={handleDeleteTask} />
+              <Task
+                key={task.uuid}
+                task={task}
+                onDeleteTask={handleDeleteTask}
+                onFinishTask={handleChangeTaskIsFinish}
+              />
           ))
         }
       </div>

@@ -1,26 +1,33 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, useEffect } from 'react';
 
 import styles from './Task.module.css'
 
 import trash from '../../assets/trash.svg'
+import TTask from '../../types/TTask';
 
 interface TaskProps {
-  content: string
-  uuid: string
+  task: TTask
   onDeleteTask: (uuid: string) => void
+  onFinishTask: (uuid: string) => void
 }
 
-const Task: React.FC<TaskProps> = ({ content, uuid, onDeleteTask }) => {
+const Task: React.FC<TaskProps> = ({ task, onDeleteTask, onFinishTask }) => {
 
   function handleDeleteTask() {
-    onDeleteTask(uuid)
+    onDeleteTask(task.uuid)
   }
+
+  function handleFinishTask() {
+    onFinishTask(task.uuid)
+  }
+
+  useEffect(() => console.log(task))
 
   return (
     <div className={styles.container}>
-      <input type="checkbox" name="" id="" />
+      <input type="checkbox" name="" id="" onChange={handleFinishTask} />
 
-      <p>{content}</p>
+      <p className={task.isFinish ? styles.finish : styles.unfinished}>{task.content}</p>
       <button onClick={handleDeleteTask}>
         <img src={trash} alt="" />
       </button>
