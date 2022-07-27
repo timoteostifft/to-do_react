@@ -51,6 +51,14 @@
   width: 100%;
 }
 
+.finish {
+  text-decoration: line-through;
+}
+
+.unfinished {
+  text-decoration: none;
+}
+
 .container button {
   background: 0;
   border: 0;
